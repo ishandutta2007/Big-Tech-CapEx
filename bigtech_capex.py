@@ -24,20 +24,40 @@ df['Microsoft_Ratio'] = (df['Microsoft_CapEx'] / df['Microsoft_Rev']) * 100
 df['Meta_Ratio'] = (df['Meta_CapEx'] / df['Meta_Rev']) * 100
 
 # Configure visual canvas
-plt.figure(figsize=(12, 6.5))
+plt.figure(figsize=(14, 8))
 
-# Plot lines with explicit styling metrics
-plt.plot(df['Year'], df['Amazon_Ratio'], marker='o', linewidth=2.5, label='Amazon', color='#FF9900')
-plt.plot(df['Year'], df['Alphabet_Ratio'], marker='s', linewidth=2.5, label='Alphabet (Google)', color='#4285F4')
-plt.plot(df['Year'], df['Microsoft_Ratio'], marker='^', linewidth=2.5, label='Microsoft', color='#F25022')
-plt.plot(df['Year'], df['Meta_Ratio'], marker='d', linewidth=2.5, label='Meta', color='#0668E1')
+# Define data configurations for iteration and labeling
+plot_configs = [
+    {'column': 'Amazon_Ratio', 'label': 'Amazon', 'color': '#FF9900', 'marker': 'o'},
+    {'column': 'Alphabet_Ratio', 'label': 'Alphabet (Google)', 'color': '#4285F4', 'marker': 's'},
+    {'column': 'Microsoft_Ratio', 'label': 'Microsoft', 'color': '#F25022', 'marker': '^'},
+    {'column': 'Meta_Ratio', 'label': 'Meta', 'color': '#0668E1', 'marker': 'd'}
+]
+
+# Plot lines and dynamically annotate points
+for config in plot_configs:
+    col = config['column']
+    plt.plot(df['Year'], df[col], marker=config['marker'], linewidth=2.5, 
+             label=config['label'], color=config['color'])
+    
+    # Loop over individual line nodes to generate annotations
+    for x, y in zip(df['Year'], df[col]):
+        plt.annotate(f"{y:.1f}%", 
+                     xy=(x, y), 
+                     xytext=(0, 8),              # Displaces the text 8 pixels vertically
+                     textcoords="offset points", # Anchors tracking logic safely
+                     ha='center',                # Center aligns horizontally
+                     fontsize=9,                 # Readable micro-font scale
+                     fontweight='semibold', 
+                     color=config['color'])      # Matches label typography to company colour
 
 # Configure comprehensive chart text, anchors, and grids
-plt.title('Big Tech CapEx-to-Revenue Ratio Over Time (2017 - 2026E)', fontsize=14, fontweight='bold', pad=15)
+plt.title('Big Tech CapEx-to-Revenue Ratio Over Time (2017 - 2026E)', fontsize=15, fontweight='bold', pad=20)
 plt.xlabel('Year', fontsize=12, labelpad=10)
 plt.ylabel('CapEx as % of Total Revenue (%)', fontsize=12, labelpad=10)
 plt.xticks(df['Year'])
-plt.grid(True, linestyle='--', alpha=0.5)
+plt.ylim(0, 80) # Adds padding to the upper ceiling to accommodate the peak Meta labels cleanly
+plt.grid(True, linestyle='--', alpha=0.4)
 plt.legend(fontsize=11, loc='upper left', frameon=True, shadow=True)
 
 # Optimize canvas space bounds and execute window
