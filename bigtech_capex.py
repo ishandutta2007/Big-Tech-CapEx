@@ -1,5 +1,6 @@
 import matplotlib.pyplot as plt
 import pandas as pd
+import os
 
 # Hardcoded historical financial data (Revenue and CapEx in Billions USD)
 data = {
@@ -60,6 +61,15 @@ plt.ylim(0, 80) # Adds padding to the upper ceiling to accommodate the peak Meta
 plt.grid(True, linestyle='--', alpha=0.4)
 plt.legend(fontsize=11, loc='upper left', frameon=True, shadow=True)
 
-# Optimize canvas space bounds and execute window
+# Optimize canvas space bounds and save plot to the assets folder
 plt.tight_layout()
+
+# Ensure assets directory exists and save the figure
+assets_dir = os.path.join(os.path.dirname(__file__), "assets")
+os.makedirs(assets_dir, exist_ok=True)
+output_path = os.path.join(assets_dir, "capex_to_revenue_ratio.png")
+plt.savefig(output_path, dpi=300, bbox_inches='tight')
+print(f"Saved plot to {output_path}")
+
+# Also display the plot interactively when running locally
 plt.show()
