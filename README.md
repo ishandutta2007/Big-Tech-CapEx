@@ -85,7 +85,14 @@ The script will automatically calculate the ratios, save the 300 DPI plot to `as
 
 ---
 
+## 🌟 Star History
+
+[![Star History Chart](https://star-history.dera.page/svg?repos=ishandutta2007/Big-Tech-CapEx&type=date&legend=top-left)](https://star-history.dera.page/#ishandutta2007/Big-Tech-CapEx&type=date&legend=top-left)
+
+---
+
 ## 📄 License 📜
 
 This project is licensed under the [MIT License](LICENSE).
+
 
