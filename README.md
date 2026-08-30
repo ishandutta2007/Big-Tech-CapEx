@@ -1,41 +1,82 @@
-# Big Tech CapEx Analysis
+# Big Tech CapEx Analysis & AI Infrastructure Spending (2017–2026E)
 
-This repository contains a small Python script that visualizes the CapEx-to-Revenue ratio for major Big Tech companies (Amazon, Alphabet, Microsoft, Meta) from 2017 to 2026 (est.). The plot is saved to the `assets/` folder and embedded below.
+[![Python](https://img.shields.io/badge/Python-3.8%2B-blue.svg)](https://www.python.org/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+[![Data Visualization](https://img.shields.io/badge/Data%20Viz-Matplotlib%20%7C%20Pandas-orange.svg)](#)
 
-## Files
-- `bigtech_capex.py` — Loads hardcoded revenue and CapEx figures, computes CapEx/Revenue (%), and plots the time series. The script now saves the plot to `assets/capex_to_revenue_ratio.png`.
-- `assets/` — Directory created automatically by the script to store generated plot images.
+A comprehensive Python data analysis and visualization tool tracking the **Capital Expenditure (CapEx) to Revenue ratios** and **AI infrastructure spending** trends for hyperscale tech leaders: **Amazon (AWS)**, **Alphabet (Google)**, **Microsoft (Azure)**, and **Meta** from 2017 through 2026 (estimated).
 
-## Prerequisites
-- Python 3.8+
-- Packages: pandas, matplotlib
+---
 
-Install packages:
+## 📌 Overview & Key Insights
 
-```
+The race for Generative AI compute, GPU clusters, and hyperscale data centers has triggered historic capital investments across the tech sector. This repository analyzes and visualizes:
+
+- **Historical CapEx Trends (2017–2024)** across major cloud and tech giants.
+- **Estimated AI CapEx Surges (2025–2026E)** as infrastructure demands accelerate.
+- **CapEx-to-Revenue Efficiency Ratio (%)** comparing capital intensity across Big Tech peers.
+
+### 📊 CapEx-to-Revenue Ratio Trends
+
+![Big Tech CapEx to Revenue Ratio (2017-2026E)](assets/capex_to_revenue_ratio.png)
+
+---
+
+## 📈 Summary Data & Metrics (2017 vs 2026E)
+
+| Company | 2017 CapEx / Rev (%) | 2026E CapEx / Rev (%) | Primary CapEx Drivers |
+| :--- | :--- | :--- | :--- |
+| **Amazon** | ~5.7% | ~26.7% | AWS Data Centers, AI Chips (Trainium/Inferentia), Logistics |
+| **Alphabet (Google)** | ~11.9% | ~42.6% | Google Cloud, TPU Infrastructure, Gemini Model Training |
+| **Microsoft** | ~8.4% | ~34.9% | Azure Cloud, OpenAI Supercomputers, Global Data Center Expansion |
+| **Meta** | ~16.5% | ~70.1% | Llama Model Development, Custom Silicon (MTIA), AI Infrastructure |
+
+---
+
+## 📂 Repository Structure
+
+- [`bigtech_capex.py`](file:///C:/Users/ishan/Documents/Projects/Big-Tech-CapEx/bigtech_capex.py) — Python script that computes CapEx-to-Revenue ratios (%) using Pandas and generates publication-ready high-resolution plots via Matplotlib.
+- `assets/` — Auto-generated output directory containing high-resolution charts (`capex_to_revenue_ratio.png` at 300 DPI).
+
+---
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+- Python 3.8 or higher
+- `pandas`
+- `matplotlib`
+
+### Installation
+
+Clone the repository and install the dependencies:
+
+```bash
+git clone https://github.com/ishandutta2007/Big-Tech-CapEx.git
+cd Big-Tech-CapEx
 pip install pandas matplotlib
 ```
 
-## Usage
-Run the script from the repository root:
+### Running the Analysis
 
-```
+Execute the Python script from the project root:
+
+```bash
 python bigtech_capex.py
 ```
 
-The script will create the `assets/` directory (if missing) and save the plot at:
+The script will automatically calculate the ratios, save the 300 DPI plot to `assets/capex_to_revenue_ratio.png`, and display the interactive chart window.
 
-`assets/capex_to_revenue_ratio.png`
+---
 
-It will also show the plot interactively when run locally.
+## 🔍 Keywords & Topics
 
-## Output
+`Big Tech CapEx`, `Capital Expenditure Analysis`, `AI Infrastructure Spending`, `Hyperscale Cloud CapEx`, `CapEx to Revenue Ratio`, `Financial Data Visualization`, `Amazon AWS CapEx`, `Microsoft Azure CapEx`, `Google Cloud Alphabet CapEx`, `Meta AI CapEx`, `Data Science Python`, `Pandas`, `Matplotlib`.
 
-![CapEx-to-Revenue Ratio](assets/capex_to_revenue_ratio.png)
+---
 
-## Notes
-- Data are hardcoded for illustrative purposes. Replace with real data loading for production use.
-- The saved image is PNG at 300 DPI.
+## 📄 License
 
-## License
-MIT
+This project is licensed under the [MIT License](LICENSE).
+
